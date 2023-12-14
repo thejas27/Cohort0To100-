@@ -25,15 +25,16 @@ function wait3(t) {
         setTimeout(resolve, t * 1000);
     })
 }
-
-async function calculateTime(t1, t2, t3) {
+function calculateTime(t1, t2, t3) {
     let before = Date.now();
-    await wait1(t1).then();
-    await wait2(t2).then();
-    await wait3(t3).then();
-     let after = Date.now();
- 
-   return after - before;
+   return wait1(t1).then(function(){
+    return wait2(t2);
+   }).then(function(){
+    return wait3(t3);
+   }).then(function(){
+    return Date.now() - before;
+   })
+    
 }
 
 module.exports = calculateTime;
