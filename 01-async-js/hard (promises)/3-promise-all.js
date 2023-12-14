@@ -24,10 +24,9 @@ function wait3(t) {
         setTimeout(resolve, t * 1000);
     })
 }
- function calculateTime(t1, t2, t3) {
+async function calculateTime(t1, t2, t3) {
     let before = Date.now();
-    Promise.all([wait1(t1), wait2(t2), wait3(t3)]).then(function () {
+   await Promise.all([wait1(t1), wait2(t2), wait3(t3)]);
         return Date.now() - before;
-    });
-
+ }
 module.exports = calculateTime;
