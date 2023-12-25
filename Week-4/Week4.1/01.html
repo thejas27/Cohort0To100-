@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id = 'fNum' placeholder="first number">
+    <br><br>
+    <input type="text" id="sNum" placeholder="second number">
+    <br><br>
+    <button onclick="calSum()">
+        Calculate sum
+    </button>
+    <br>
+    <div id="sum"></div>
+
+    <script>
+            function calSum(){
+                const a = document.getElementById('fNum').value;
+
+                const b = document.getElementById('sNum').value;
+
+                document.getElementById('sum').innerHTML = parseInt(a) + parseInt(b);//value gives us string soo parseInt to convert
+
+                //for doing without button use oninput for both the inputs and sum it up
+            }
+    </script>
+</body>
+</html>
