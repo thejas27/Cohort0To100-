@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intrest</title>
+</head>
+<body>
+    <input type="text" id = 'principal' placeholder="PrincipalAmount">
+    <br><br>
+    <input type="text" id="rate" placeholder="Rate">
+    <br><br>
+    <input type="text" id="time" placeholder="Time">
+    <br><br>
+    <button onclick="calIntrest()">
+        Calculate Intrest
+    </button>
+    <br>
+    <div id="Intrest"></div>
+
+    <script>
+            function calIntrest(){
+                const a = document.getElementById('principal').value;
+                const b = document.getElementById('rate').value;
+                const c = document.getElementById('time').value;
+                //backend link is provided by harkirat
+                fetch("https://sum-server.100xdevs.com/interest?principal="+a+"&rate="+b+"&time="+c).then(function(response){
+                    response.text().then(function(ans){
+                        document.getElementById('Intrest').innerHTML = ans;
+                    });//actual syntax of fetch api
+                })
+               
+            }
+    </script>
+</body>
+</html>
